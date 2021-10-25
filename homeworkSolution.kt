@@ -4,30 +4,40 @@ Answer Q1
 fun main() {
 
 
-    println(" name student ")
-    var name: String? = readLine()!!
 
-    println(" age student ")
-    var age: Int = readLine()!!.toInt()
-
-    println("GPA student ")
-    var GPA: Double = readLine()!!.toDouble()
-
-
-    class Student(val Name: String, val Age: Int, val GPA: Double) {
+    print("your name: ")
+    val nameSu =readLine()
+    print("your age:")
 
 
 
 
-        fun speakStu (name: String?,age: Int?,GPA: Double?){
-            println("Hi my name is $name, \n I'm $age years old, \n  my GPA : $GPA")
-        }
+    try {
+        val ageSu = readLine()?.toInt()
+        //readLine تعطي المستخدم خاصيه كتابه المدخل المراد
+        print(" your GPA: ")
+        val GPASu = readLine()?.toDouble()
+//readLineتعطي المستخدم خاصيه كتابه المدخل المراد
+        val student = Stud (nameSu,ageSu ,GPASu  )
+        student.speak(nameSu,ageSu,GPASu)
+        print("first number:")
+        val numF= readLine()?.toInt()
+        print("second number:")
+        val numF2 = readLine()?.toInt()
+        print(student.adding(numF,numF2))
+    }catch (e : NumberFormatException){
+        println("Errrorrrrr")
+    }
+}
+class Stud (name:String? ,age :Int?,GPA : Double?) {
+    fun speak (name: String?,age: Int?,GPA: Double?){
+        println("Hi my name is $name,\n I'm $age years old,\n my GPA is $GPA")
+    }
 
-        fun add (num1: Int?, num2 :Int?):Int?{
-            print("the sum of $num1 , and $num2 is = ")
-            return num2?.let { num1?.plus(it) }
-        }
 
+    fun adding (num1: Int?, num2 :Int?):Int?{
+        println("the sum of $num1,and $num2 is = ")
+        return num2?.let{ num1?.plus(it) }
     }
 }
 ///Answer Q2
